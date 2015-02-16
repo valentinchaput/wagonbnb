@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
          :rememberable,
          :trackable,
          :validatable
+         # module activé depuis devise
+         # confirmable (d'email) n'est pas activé ici
 
   has_many :flats
 
