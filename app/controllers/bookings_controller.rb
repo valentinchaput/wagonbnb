@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_user, only: [:new, :create]
 
   def index
@@ -15,22 +16,23 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user = @user
-    @booking.flat = Flat.find(dose_params[:flat_id].to_i)
+    @booking.flat = @flat
+    @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to booking_path(@booking) #va changer en fonction des routes du flat (/flats/2/bookings/new)
     else
-      # render :signup ou :signin ?
+      flash.now[:alert] = "message error"
+      render :new
     end
   end
 
   private
 
-  def find_user
-    @user = User.find(params[:user_id])
+  def find_flat
+    @flat = Flat.find(params[:flat_id])
   end
 
   def booking_params
-    params.require(:booking).permit(:flat_id, :checkin, :checkout)
+    params.require(:booking).permit(:checkin, :checkout)
   end
 end
