@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'flats/index'
+
+  get 'flats/show'
+
+  get 'flats/new'
+
+  get 'flats/created'
+
+  get 'flats/edit'
+
+  get 'flats/update'
+
   devise_for :users
   root to: 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
