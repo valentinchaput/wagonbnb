@@ -1,4 +1,46 @@
-<h1>WagonBnb</h1>
-<h2>Welcome in your journey</h2>
-<p>Rent authentic vans from locals around the world</p>
+<div class="padded text-center" id="banner">
+  <h1>WagonBnb</h1>
+</div>
 
+<div id="features">
+  <h2 class="text-center">Rent unique station wagons from local hosts in 190+ countries.</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+        <div class="card text-center padded" id="paris">
+          <h3>Paris</h3>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-5">
+        <div class="card text-center padded" id="barcelona">
+          <h3>Barcelona</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+        <div class="card text-center padded" id:"lisbon">
+          <h3>Lisbon</h3>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-5">
+        <div class="card text-center padded" id="chamonix">
+          <h3>Chamonix</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% form_tag flat_path, :method => 'get' do %>
+<%= label :search, "City" %><br />
+<%= text_field :search, :city %><br />
+<br />
+<%= label :search, "Check In" %><br />
+<%= date_select :search, :checkin %><br />
+<br />
+<%= label :search, "Check Out" %><br />
+<%= date_select :search, :checkout %><br />
+<br />
+<%= submit_tag "Search", :name=>nil, :class => "btn btn-success" %>
+<% end %>
