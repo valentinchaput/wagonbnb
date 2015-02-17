@@ -2,9 +2,12 @@ Rails.application.routes.draw do
 
   get 'profile/show'
 
+
+  devise_for :users, controllers: { registrations: "users/registrations" }
+
   root to: 'home#index'
 
-  devise_for :users
+
 
   resources :flats, only: [:index, :show, :new, :create, :edit, :update] do
     resources :bookings, only: [:index, :show, :new, :create, :edit, :update]

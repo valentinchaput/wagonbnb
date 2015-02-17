@@ -10,10 +10,15 @@
 </head>
 <body>
 
-<%= render 'layouts/sessions' %>
+<!-- for detecting device width with bootstrap -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<%= yield %>
+<%= render "shared/navbar" %>
 
+<div class="container">
+  <%= yield %>
+</div>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
