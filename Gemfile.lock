@@ -40,7 +40,6 @@ GEM
     autoprefixer-rails (5.1.5)
       execjs
       json
-
     aws-sdk (2.0.24)
       aws-sdk-resources (= 2.0.24)
     aws-sdk-core (2.0.24)
@@ -50,14 +49,12 @@ GEM
       multi_xml (~> 0.5)
     aws-sdk-resources (2.0.24)
       aws-sdk-core (= 2.0.24)
-
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
-
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -86,10 +83,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.3.0)
-
     figaro (1.1.0)
       thor (~> 0.14)
-
     font-awesome-sass (4.2.2)
       sass (~> 3.2)
     globalid (0.3.3)
@@ -207,16 +202,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-
   aws-sdk
-
   bootstrap-sass (~> 3.3.1)
   byebug
   coffee-rails (~> 4.1.0)
   devise
-
   figaro
-
   font-awesome-sass (~> 4.2.0)
   jbuilder (~> 2.0)
   jquery-rails
