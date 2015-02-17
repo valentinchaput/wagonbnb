@@ -1,16 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'flats/index'
-
-  get 'flats/show'
-
-  get 'flats/new'
-
-  get 'flats/created'
-
-  get 'flats/edit'
-
-  get 'flats/update'
+  resources :flats
 
   devise_for :users
   root to: 'home#index'
