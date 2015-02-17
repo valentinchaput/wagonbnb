@@ -1,0 +1,10 @@
+<h1>Request a booking for <%= @flat.title %></h1>
+
+<%= simple_form_for(@booking) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :checkin %>
+  <%= f.input :checkout %>
+
+  <%= f.button :submit, class: "btn btn-success" %>
+<% end %>
