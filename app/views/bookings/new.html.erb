@@ -1,2 +1,10 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1>Request a booking for <%= @flat.title %></h1>
+
+<%= simple_form_for(@booking) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :checkin %>
+  <%= f.input :checkout %>
+
+  <%= f.button :submit, class: "btn btn-success" %>
+<% end %>
