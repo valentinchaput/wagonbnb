@@ -4,6 +4,9 @@
 
 <div id="features">
   <h2 class="text-center">Rent unique station wagons from local hosts in 190+ countries.</h2>
+<br>
+<%= submit_tag "Search", :name=>nil, :class => "btn btn-success" %>
+<% end %>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
@@ -31,16 +34,3 @@
     </div>
   </div>
 </div>
-
-<% form_tag flat_path, :method => 'get' do %>
-<%= label :search, "City" %><br />
-<%= text_field :search, :city %><br />
-<br />
-<%= label :search, "Check In" %><br />
-<%= date_select :search, :checkin %><br />
-<br />
-<%= label :search, "Check Out" %><br />
-<%= date_select :search, :checkout %><br />
-<br />
-<%= submit_tag "Search", :name=>nil, :class => "btn btn-success" %>
-<% end %>
