@@ -1,5 +1,5 @@
 <div class="padded text-center" id="banner">
-  <h1>WagonBnb</h1>
+  <h2>Welcome in your journey</h2>
 </div>
 
 <div id="features">
@@ -33,4 +33,21 @@
       </div>
     </div>
   </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+
+<div>
+  <%= form_tag(flats_path, :method => "get", id: "search-form") do %>
+  <%= label :search, "City" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+  <%= submit_tag "Search", class: "btn btn-success" %>
+  <% end %>
+  <% if @posts.present? %>
+    <%= render @posts %>
+  <% else %>
+    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+  <% end %>
+</div>
+>>>>>>> 823d24f60e0f47403c82a2ce1e99a9b41227f9c6

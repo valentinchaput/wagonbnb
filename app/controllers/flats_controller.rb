@@ -1,8 +1,12 @@
 class FlatsController < ApplicationController
-  before_action :set_flat
 
   def index
     @flats = Flat.all
+    if params[:search]
+    @flats = Flat.search(params[:search]).order("created_at DESC")
+  else
+    @flats = Flat.all.order('created_at DESC')
+  end
   end
 
   def show
@@ -35,10 +39,6 @@ class FlatsController < ApplicationController
   end
 
   private
-
-  def set_flat
-    @flat = Flat.find(params[:id])
-  end
 
   def flat_params
     params.require(:flat).permit(:title, :description, :city, :price, :user_id, :availability, :picture)

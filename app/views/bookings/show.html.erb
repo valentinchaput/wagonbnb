@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Here are details for your booking request:</h1>
+  <p><%= @booking.flat.title %></p>
+  <p><%= @booking.user.name %></p>
+  <p><%= @booking.checkin %></p>
+  <p><%= @booking.checkout %></p>
+
+  <div>
+    <%= link_to "new search", root_path, class: "btn btn-primary" %>
+    <%= link_to "return to profile", profile_show_path, class: "btn btn-warning" %>
+  </div>
+</div>
