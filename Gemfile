@@ -32,6 +32,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Deploy on Heroku
+ruby '2.2.0'
+gem 'rails_12factor', group: :production
+gem 'puma',           group: :production
+
 gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.3.1'
