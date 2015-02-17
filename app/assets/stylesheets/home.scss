@@ -1,3 +1,67 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#banner {
+  background: url('Combi5.jpg');
+  background-size: cover;
+  height: 800px;
+  padding-top: 300px;
+  h1 {
+    font-size: 100px;
+  }
+}
+
+#paris {
+  background: url('Combi6.jpg');
+  background-size: cover;
+}
+
+#barcelona {
+  background: url('Combi7.jpg');
+  background-size: cover;
+}
+
+#lisbon {
+  background: url('Combi11.jpg');
+  background-size: cover;
+}
+
+#chamonix {
+  background: url('Combi10.jpg');
+  background-size: cover;
+}
+
+.card {
+  height: 300px;
+  margin: 10px 10px 10px 10px;
+  color: white;
+}
+
+#features h2 {
+  padding-top: 2em;
+}
+
+.product-box {
+  margin: 5%;
+  padding: 5%;
+  background-color: white;
+  min-height: 200px;
+  // height: 300px;
+  // width: 300px;
+}
+
+.container-app {
+  margin-top: 70px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+body {
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #565A5C;
+}
