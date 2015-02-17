@@ -1,4 +1,46 @@
-<h2>Welcome in your journey</h2>
-<p>Rent authentic vans from locals around the world</p>
+<div class="padded text-center" id="banner">
+  <h2>Welcome in your journey</h2>
+</div>
 
-<!-- simple_form_for(@user, html: { class: 'form-horizontal' }) do |form| -->
+<div id="features">
+  <h2 class="text-center">Rent unique station wagons from local hosts in 190+ countries.</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+        <div class="card text-center padded" id="paris">
+          <h3>Paris</h3>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-5">
+        <div class="card text-center padded" id="barcelona">
+          <h3>Barcelona</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+        <div class="card text-center padded" id:"lisbon">
+          <h3>Lisbon</h3>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-5">
+        <div class="card text-center padded" id="chamonix">
+          <h3>Chamonix</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <%= form_tag(flats_path, :method => "get", id: "search-form") do %>
+  <%= label :search, "City" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+  <%= submit_tag "Search", class: "btn btn-success" %>
+  <% end %>
+  <% if @posts.present? %>
+    <%= render @posts %>
+  <% else %>
+    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+  <% end %>
+</div>

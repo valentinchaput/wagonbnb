@@ -4,6 +4,6 @@ class Booking < ActiveRecord::Base
 
   validates :checkin, presence: true
   validates :checkout, presence: true
-  validates :user_id, presence: true, uniqueness: true
-  validates :flat_id, presence: true, uniqueness: true
+  validates :user_id, presence: true #, uniqueness: true
+  validates :flat_id, presence: true #, uniqueness: true
 end
