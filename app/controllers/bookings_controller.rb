@@ -21,9 +21,17 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to booking_path(@booking) #va changer en fonction des routes du flat (/flats/2/bookings/new)
     else
-      flash.now[:alert] = "message error"
+      flash.now[:alert] = "Unable to create a booking request"
       render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
   end
 
   private
