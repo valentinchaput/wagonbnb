@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_user, only: [:new, :create]
+  before_action :find_flat, only: [:new, :create]
 
   def index
     @bookings = Booking.all
@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.flat = @flat
     @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking) #va changer en fonction des routes du flat (/flats/2/bookings/new)
+      redirect_to flat_booking_path(@flat, @booking)
     else
       flash.now[:alert] = "Unable to create a booking request"
       render :new
@@ -31,8 +31,6 @@ class BookingsController < ApplicationController
 
   # def update
   # end
-
-  end
 
   private
 

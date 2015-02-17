@@ -1,10 +1,14 @@
-<h1>Request a booking for <%= @flat.title %></h1>
+<div class="container">
+  <h1>Request a booking for <%= @flat.title %></h1>
 
-<%= simple_form_for(@booking) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for [@flat, @booking] do |f| %>
+    <%= f.error_notification %>
 
-  <%= f.input :checkin %>
-  <%= f.input :checkout %>
+    <%= @booking.errors.inspect %>
 
-  <%= f.button :submit, class: "btn btn-success" %>
-<% end %>
+    <%= f.input :checkin %>
+    <%= f.input :checkout %>
+
+    <%= f.button :submit, class: "btn btn-success" %>
+  <% end %>
+</div>
