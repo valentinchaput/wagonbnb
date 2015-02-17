@@ -32,15 +32,15 @@
   </div>
 </div>
 
-<% form_tag flat_path, :method => 'get' do %>
-<%= label :search, "City" %><br />
-<%= text_field :search, :city %><br />
-<br />
-<%= label :search, "Check In" %><br />
-<%= date_select :search, :checkin %><br />
-<br />
-<%= label :search, "Check Out" %><br />
-<%= date_select :search, :checkout %><br />
-<br />
-<%= submit_tag "Search", :name=>nil, :class => "btn btn-success" %>
-<% end %>
+<div>
+  <%= form_tag(flats_path, :method => "get", id: "search-form") do %>
+  <%= label :search, "City" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+  <%= submit_tag "Search", class: "btn btn-success" %>
+  <% end %>
+  <% if @posts.present? %>
+    <%= render @posts %>
+  <% else %>
+    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+  <% end %>
+</div>
