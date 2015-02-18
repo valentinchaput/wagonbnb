@@ -8,9 +8,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">
+
+        <%= link_to root_path, class: "navbar-brand" do %>
           <%= image_tag "logo.jpg" %>
-        </a>
+        <% end %>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,7 +23,7 @@
             <% end %>
           </li>
           <% if user_signed_in? %>
-            <li><%= link_to current_user.name, "#" %></li>
+            <li><%= link_to current_user.name, profile_show_path %></li>
             <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
           <% else %>
             <li><%= link_to 'Sign up', new_user_registration_path %></li>
@@ -46,7 +47,7 @@
             </ul>
           </li> -->
           <li>
-            <%= link_to "Add a flat", "#", class: "btn" %>
+            <%= link_to "Add a flat", new_flat_path, class: "btn" %>
           </li>
           <li>
          <!--    <form class="navbar-form" role="search">
