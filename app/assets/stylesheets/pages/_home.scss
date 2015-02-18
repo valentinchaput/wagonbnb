@@ -4,7 +4,7 @@
 
 #banner
 {
-  background-image: url(Combi11.jpg);
+  background-image: asset-url("Combi11.jpg");
   color: white;
   padding: 200px 0;
   background-size: cover;
@@ -40,22 +40,22 @@
 }
 
 #paris {
-  background-image: url(Combi6.jpg);
+  background-image: asset-url("Combi6.jpg");
   background-size: cover;
 }
 
 #barcelona {
-  background-image: url(Combi7.jpg);
+  background-image: asset-url("Combi7.jpg");
   background-size: cover;
 }
 
 #lisbon {
-  background-image: url(Combi3.jpeg);
+  background-image: asset-url("Combi3.jpeg");
   background-size: cover;
 }
 
 #chamonix {
-  background-image: url(Combi10.jpg);
+  background-image: asset-url("Combi10.jpg");
   background-size: cover;
 }
 
