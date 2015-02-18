@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #banner {
-  background: url('Combi5.jpg');
+  background-image: url(Combi5.jpg);
   background-size: cover;
   height: 800px;
   padding-top: 300px;
@@ -13,22 +13,22 @@
 }
 
 #paris {
-  background: url('Combi6.jpg');
+  background-image: url(Combi6.jpg);
   background-size: cover;
 }
 
 #barcelona {
-  background: url('Combi7.jpg');
+  background-image: url(Combi7.jpg);
   background-size: cover;
 }
 
 #lisbon {
-  background: url('Combi11.jpg');
+  background-image: url(Combi11.jpg);
   background-size: cover;
 }
 
 #chamonix {
-  background: url('Combi10.jpg');
+  background-image: url(Combi10.jpg);
   background-size: cover;
 }
 
