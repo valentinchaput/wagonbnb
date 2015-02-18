@@ -244,8 +244,8 @@ DEPENDENCIES
   font-awesome-sass (~> 4.2.0)
   jbuilder (~> 2.0)
   jquery-rails
-  omniauth-facebook
   letter_opener
+  omniauth-facebook
   paperclip
   pg
   puma
