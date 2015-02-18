@@ -1,53 +1,67 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '350998755087038',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <div class="padded text-center" id="banner">
-  <h2>Welcome in your journey</h2>
+ <h2>Welcome in your journey</h2>
+</div><div id="features">
+ <h2 class="text-center">Rent unique station wagons from local hosts in 190+ countries.</h2>
+ <div class="container">
+   <div class="row">
+     <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+       <div class="card text-center padded" id="paris">
+         <h3>Paris</h3>
+       </div>
+     </div>
+     <div class="col-xs-12 col-sm-6 col-md-5">
+       <div class="card text-center padded" id="barcelona">
+         <h3>Barcelona</h3>
+       </div>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+       <div class="card text-center padded" id:"lisbon">
+         <h3>Lisbon</h3>
+       </div>
+     </div>
+     <div class="col-xs-12 col-sm-6 col-md-5">
+       <div class="card text-center padded" id="chamonix">
+         <h3>Chamonix</h3>
+       </div>
+     </div>
+   </div>
+ </div>
+</div><div>
+ <%= form_tag(flats_path, :method => "get", id: "search-form") do %>
+ <%= label :search, "City" %>
+ <%= text_field_tag :search, params[:search], placeholder: "Search by city" %>
+ <%= submit_tag "Search", class: "btn btn-success" %>
+ <% end %>
+ <% if @posts.present? %>
+   <%= render @posts %>
+ <% else %>
+   <p>There are no wagons in <%= params[:search] %>.</p>
+ <% end %>
 </div>
 
-<div id="features">
-  <h2 class="text-center">Rent unique station wagons from local hosts in 190+ countries.</h2>
-<br>
-<%= submit_tag "Search", :name=>nil, :class => "btn btn-success" %>
-<% end %>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
-        <div class="card text-center padded" id="paris">
-          <h3>Paris</h3>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-5">
-        <div class="card text-center padded" id="barcelona">
-          <h3>Barcelona</h3>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
-        <div class="card text-center padded" id:"lisbon">
-          <h3>Lisbon</h3>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-5">
-        <div class="card text-center padded" id="chamonix">
-          <h3>Chamonix</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-<<<<<<< HEAD
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
 </div>
-=======
-</div>
-
-<div>
-  <%= form_tag(flats_path, :method => "get", id: "search-form") do %>
-  <%= label :search, "City" %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
-  <%= submit_tag "Search", class: "btn btn-success" %>
-  <% end %>
-  <% if @posts.present? %>
-    <%= render @posts %>
-  <% else %>
-    <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-  <% end %>
-</div>
->>>>>>> 823d24f60e0f47403c82a2ce1e99a9b41227f9c6
