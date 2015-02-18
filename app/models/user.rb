@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
          # confirmable (d'email) n'est pas activé ici
 
   has_many :flats
+  has_many :bookings
 
   # validates :name, presence: true, uniqueness: true
   # validates :email, presence: true, uniqueness: true, format: { with: /\A.*@.*\.com\z/ }
