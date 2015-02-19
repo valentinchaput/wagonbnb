@@ -3,10 +3,10 @@ class FlatsController < ApplicationController
   def index
     @flats = Flat.all
     if params[:search]
-    @flats = Flat.search(params[:search]).order("created_at DESC")
-  else
-    @flats = Flat.all.order('created_at DESC')
-  end
+      @flats = Flat.search(params[:search]).order("created_at DESC")
+    else
+      @flats = Flat.all.order('created_at DESC')
+    end
   end
 
   def show
@@ -19,6 +19,7 @@ class FlatsController < ApplicationController
 
   def create
     @flat = Flat.new(flat_params)
+    @flat.user_id = current_user.id
     if @flat.save
       flash[:notice] = "Flat was successfully created."
       redirect_to flat_path(@flat)
