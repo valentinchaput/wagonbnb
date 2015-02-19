@@ -17,35 +17,18 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li>
+<!--           <li>
             <%= link_to "#" do %>
               <i class="fa fa-envelope-o"></i>
             <% end %>
-          </li>
-          <% if user_signed_in? %>
-            <li><%= link_to current_user.name, profile_show_path %></li>
-            <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
-          <% else %>
-            <li><%= link_to 'Sign up', new_user_registration_path %></li>
-            <li><%= link_to 'Sign in', new_user_session_path %></li>
-          <% end %>
-          <!-- <li class="dropdown">
-            <%= link_to "#", {class: "dropdown-toggle", "data-toggle" => "dropdown", "role" => "button", "aria-expanded" => "false"} do %>
-              <%= image_tag "http://lorempixel.com/30/30/people", class: "img-avatar" %>
-              hello <span class="caret"></span>
-            <% end %>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <% if user_signed_in? %>
-                  <%= current_user.name %>
-                  <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
-                <% else %>
-                  <%= link_to 'Sign up', new_user_registration_path %>
-                  <%= link_to 'Sign in', new_user_session_path %>
-                <% end %>
-              </li>
-            </ul>
           </li> -->
+            <% if user_signed_in? %>
+              <li><%= link_to current_user.name, profile_show_path %></li>
+              <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
+            <% else %>
+              <li><%= link_to 'Sign up', new_user_registration_path %></li>
+              <li><%= link_to 'Sign in', new_user_session_path %></li>
+            <% end %>
           <li>
             <%= link_to "Add a wagon", new_flat_path, class: "btn" %>
           </li>

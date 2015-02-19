@@ -15,9 +15,9 @@ class User < ActiveRecord::Base
   has_many :flats
   has_many :bookings
 
-  # validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   # validates :email, presence: true, uniqueness: true, format: { with: /\A.*@.*\.com\z/ }
-  # validates :phone_number, presence: true, uniqueness: true, format: { with: /\d{10}/ }, numericality: { only_interger: true }
+  # validates :phone_number, presence: true
 
   def self.find_for_facebook_oauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
