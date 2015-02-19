@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Your profile</h1>
+  <h1>My Dashboard</h1>
   <h2><%= current_user.name %></h2>
 
   <div>
@@ -13,26 +13,34 @@
       <p><%= f.description %></p>
       <p><%= f.price %></p>
     <% end %>
+    <h4>Request(s) to confirm: </h4>
+       <p><% current_user.bookings.each do |b| %></p>
+         <p>Flat: <%= b.flat.title %></p>
+         <p>Renter: <%= b.user.name %></p>
+         <p>from <%= b.checkin %></p>
+         <p>to <%= b.checkout %></p>
+         <% if b.status.nil? %>
+           <%= form_for([b.flat, b]) do |f| %>
+             <%= f.hidden_field :id, value: b.id %>
+             <%= f.hidden_field :status, value: true %>
+             <%= f.submit "Accept", class: "btn btn-success" %>
+           <% end %>
+           <%= form_for([b.flat, b]) do |f| %>
+             <%= f.hidden_field :status, value: false %>
+             <%= f.submit "Decline", class: "btn btn-danger" %>
+           <% end %>
+         <% else %>
+           <p>Status: <%= b.status %></p>
+         <% end %>
+       <% end %>
 
-    <h4>My booking(s): </h4>
-    <p><% current_user.bookings.each do |b| %></p>
-      <p>Flat: <%= b.flat_id %></p>
-      <p>Renter: <%= b.user_id %></p>
-      <p>from <%= b.checkin %></p>
-      <p>to <%= b.checkout %></p>
-      <% if b.status.nil? %>
-        <%= form_for([b.flat, b]) do |f| %>
-          <%= f.hidden_field :id, value: b.id %>
-          <%= f.hidden_field :status, value: true %>
-          <%= f.submit "Accept", class: "btn btn-success" %>
-        <% end %>
-        <%= form_for([b.flat, b]) do |f| %>
-          <%= f.hidden_field :status, value: false %>
-          <%= f.submit "Decline", class: "btn btn-danger" %>
-        <% end %>
-      <% else %>
-        <p>Status: <%= b.status %> </p>
-      <% end %>
-    <% end %>
+       <h4>My Booking Request(s): </h4>
+       <p><% current_user.bookings.each do |b| %></p>
+         <p>Flat: <%= b.flat.title %></p>
+         <p>Renter: <%= b.user.name %></p>
+         <p>from <%= b.checkin %></p>
+         <p>to <%= b.checkout %></p>
+         <p>Status: <%= b.status %></p>
+       <% end %>
   </div>
 </div>
