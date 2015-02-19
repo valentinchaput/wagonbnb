@@ -15,7 +15,7 @@ class Flat < ActiveRecord::Base
   content_type: /\Aimage\/.*\z/
 
   def self.search(search)
-    where("city LIKE ?", "%#{search}%")
+    where("city iLIKE ?", "%#{search}%")
   end
 
 end
