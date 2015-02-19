@@ -1,13 +1,19 @@
-<div class="item">
-  <h1>Add your wagon</h1>
-  <%= simple_form_for(@flat) do |f| %>
-    <%= f.error_notification %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-4">
+      <div class="item">
+        <h3 class="text-center">Add your wagon</h3>
+        <%= simple_form_for(@flat) do |f| %>
+        <%= f.error_notification %>
 
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :city %>
-    <%= f.input :price %>
-    <%= f.input :picture %>
-    <%= f.button :submit %>
-  <% end %>
+        <%= f.input :title, placeholder: 'The Mystery Machine' %>
+        <%= f.input :description, placeholder: 'A nice station wagon for Scoobi-doo lovers' %>
+        <%= f.input :city, placeholder: 'Los Angeles' %>
+        <%= f.input :price %>
+        <%= f.input :picture %>
+        <%= f.button :submit, value: 'Add a wagon', class:"center-block btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
