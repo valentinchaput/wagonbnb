@@ -5,3 +5,18 @@
   <%= link_to 'Sign up', new_user_registration_path %>
   <%= link_to 'Sign in', new_user_session_path %>
 <% end %>
+
+<!-- Facebook Connect -->
+<% if user_signed_in? %>
+  <li>
+    <%= link_to "Connexion", new_user_session_path %>
+  </li>
+  <li>
+    <%= link_to "Connect with Facebook", user_omniauth_authorize_path(:facebook) %>
+  </li>
+<% end %>
+
+<!-- Facebook profile picture -->
+<% if user_signed_in? %>
+  <%= image_tag current_user.picture, class: "img-avatar" %>
+<% end %>

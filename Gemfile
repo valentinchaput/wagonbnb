@@ -37,13 +37,18 @@ ruby '2.2.0'
 gem 'rails_12factor', group: :production
 gem 'puma',           group: :production
 
-gem 'devise'
-
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'simple_form'
 
+# Gemfile
+# Devise with fb-omniauth extension
+gem 'devise'
+gem 'omniauth-facebook'
+
+# Figaro to protect API keys
 gem 'figaro'
+
 gem 'aws-sdk'
 gem 'paperclip'
 
@@ -55,5 +60,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 
   gem 'spring'
+  gem 'better_errors'
 
+  gem "letter_opener", group: :development
 end
