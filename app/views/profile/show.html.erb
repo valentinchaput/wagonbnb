@@ -1,38 +1,8 @@
 <div class="container">
-  <h1>Your profile</h1>
-  <h2><%= current_user.name %></h2>
+  <h1><%= current_user.name %></h1>
 
   <div>
     <p><%= current_user.phone_number %></p>
     <p><%= current_user.email %></p>
-
-    <h4>My flat(s): </h4>
-    <p><% current_user.flats.each do |f| %></p>
-      <p><%= f.title %></p>
-      <p><%= f.city %></p>
-      <p><%= f.description %></p>
-      <p><%= f.price %></p>
-    <% end %>
-
-    <h4>My booking(s): </h4>
-    <p><% current_user.bookings.each do |b| %></p>
-      <p>Flat: <%= b.flat_id %></p>
-      <p>Renter: <%= b.user_id %></p>
-      <p>from <%= b.checkin %></p>
-      <p>to <%= b.checkout %></p>
-      <% if b.status.nil? %>
-        <%= form_for([b.flat, b]) do |f| %>
-          <%= f.hidden_field :id, value: b.id %>
-          <%= f.hidden_field :status, value: true %>
-          <%= f.submit "Accept", class: "btn btn-success" %>
-        <% end %>
-        <%= form_for([b.flat, b]) do |f| %>
-          <%= f.hidden_field :status, value: false %>
-          <%= f.submit "Decline", class: "btn btn-danger" %>
-        <% end %>
-      <% else %>
-        <p>Status: <%= b.status %> </p>
-      <% end %>
-    <% end %>
   </div>
 </div>

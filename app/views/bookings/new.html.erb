@@ -4,6 +4,8 @@
   <%= simple_form_for [@flat, @booking] do |f| %>
     <%= f.error_notification %>
 
+    <%= @booking.errors.inspect %>
+
     <%= f.input :checkin %>
     <%= f.input :checkout %>
 

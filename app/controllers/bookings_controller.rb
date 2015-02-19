@@ -26,18 +26,11 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
-    @booking = Booking.find(params[:id])
-  end
+  # def edit
+  # end
 
-  def update
-    @booking = Booking.find(params[:booking][:id])
-    if @booking.update(booking_params)
-      redirect_to flats_path
-    else
-      redirect_to profile_show_path
-    end
-  end
+  # def update
+  # end
 
   private
 
@@ -46,6 +39,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:checkin, :checkout, :status)
+    params.require(:booking).permit(:checkin, :checkout)
   end
 end
