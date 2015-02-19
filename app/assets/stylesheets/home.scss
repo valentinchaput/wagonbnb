@@ -5,8 +5,9 @@
 #banner {
   background: url('Combi11.jpg');
   background-size: cover;
-  height: 800px;
-  padding-top: 300px;
+  padding-top: 260px;
+  height: 50vw;
+  width: 100vw;
   h1 {
     font-size: 100px;
   }
@@ -51,10 +52,6 @@
   // width: 300px;
 }
 
-// .container-app {
-//   margin-top: 70px;
-// }
-
 .text-center {
     text-align: center;
 }
@@ -66,3 +63,16 @@ body {
     color: #565A5C;
     padding-top: 70px;
 }
+
+#body-home {
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.43;
+    color: #565A5C;
+    padding-top: 0px;
+}
+
+#searchbar {
+ color: black;
+}
+

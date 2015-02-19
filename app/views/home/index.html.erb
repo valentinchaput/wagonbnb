@@ -1,91 +1,80 @@
+<body id="body-home">
+
+
 <div class="padded text-center smooth-scrollable" id="banner">
   <div class="fade-and-slide">
     <h2>Your ride, your home</h2>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="center fade-and-slide">
-
-<!--         <form>
-          <div class="form-group">
-            <label for="search"></label>
-              <input type="search" class="form-control searchbar center-block" placeholder="Where to?">
-            </input>
-          </div>
-          <button type="submit" class="btn btn-primary">Let's go!</button>
-        </form> -->
-
-    <%= form_tag(flats_path, :method => "get", id: "search-form") do %>
-       <%= text_field_tag :search, params[:search] %>
-       <%= submit_tag "Let's go", class: "btn btn-primary"%>
-    <% end %>
-    <% if @flats.present? %>
-       <%= render @flats %>
-    <% end %>
-
-    </div>
+  <div id="searchbar" class="center-block">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="center fade-and-slide">
+          <%= form_tag(flats_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Let's go", class: "btn btn-primary"%>
+            <% end %>
+          <% if @flats.present? %>
+            <%= render @flats %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
   <a href="#description"><i class="fa fa-angle-down fa-6 pulse scroll-btn"></i></a>
 </div>
-<div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="features">
+        <h2 class="text-center">Rent unique station wagons from local hosts in 190+ countries.</h2>
+      </div>
+    </div>
+  </div>
 </div>
-<div id="features">
-  <h2 class="text-center">Rent unique station wagons from local hosts in 190+ countries.</h2>
- <div class="container">
-   <div class="row">
-     <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
-       <div class="card text-center padded" id="paris">
-         <h3>Paris</h3>
-       </div>
-     </div>
-     <div class="col-xs-12 col-sm-6 col-md-5">
-       <div class="card text-center padded" id="barcelona">
-         <h3>Barcelona</h3>
-       </div>
-     </div>
-   </div>
-   <div class="row">
-     <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
-       <div class="card text-center padded" id="lisbon">
-         <h3>Lisbon</h3>
-       </div>
-     </div>
-     <div class="col-xs-12 col-sm-6 col-md-5">
-       <div class="card text-center padded" id="chamonix">
-         <h3>Chamonix</h3>
-       </div>
-     </div>
-   </div>
- </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+      <div class="card text-center padded" id="paris">
+        <h3>Paris</h3>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-5">
+      <div class="card text-center padded" id="barcelona">
+        <h3>Barcelona</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-1">
+      <div class="card text-center padded" id="lisbon">
+        <h3>Lisbon</h3>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-5">
+      <div class="card text-center padded" id="chamonix">
+        <h3>Chamonix</h3>
+      </div>
+    </div>
+  </div>
+
+
 </div>
+
+
+
 
 <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '350998755087038',
-      xfbml      : true,
-      version    : 'v2.2'
-    });
-  };
 
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
+// header pic height
+$(document).ready(function() {
+  $(« .window-height »).css(« height », $(window).height());
+});
+// end header pic
 
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
 
-<script>
 $(function() {
 // Smooth scroll
 $('a[href*=#]:not([href=#])').click(function() {
@@ -104,3 +93,5 @@ $('a[href*=#]:not([href=#])').click(function() {
 window.sr = new scrollReveal();
 });
 </script>
+
+</body>
