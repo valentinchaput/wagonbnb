@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:booking][:id])
     if @booking.update(booking_params)
-      redirect_to flats_path
+      redirect_to profile_show_path
     else
       redirect_to profile_show_path
     end
