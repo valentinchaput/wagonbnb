@@ -1,28 +1,28 @@
 @import "home";
 
-// .card-white {
-//   background: white;
-//   padding: 30px;
-//   box-shadow: 1px 1px 2px #e7e7e7;
-//   border-radius: 4px;
-//   margin: 20px auto;
-//   width: 260px;
-// }
+.card-white {
+  background: white;
+  padding: 30px;
+  box-shadow: 1px 1px 2px #e7e7e7;
+  border-radius: 4px;
+  margin: 20px auto;
+  width: 320px;
+}
 
 .imageContainer{
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 260px;
 }
 
 .titleContainer{
-  height: 70px;
-  width: auto;
+  height: 100px;
+  width: 260px;
 }
 
-.infosContainer{
-  height: 30px;
-  width: auto;
-}
+// .infosContainer{
+//   height: 30px;
+//   width: auto;
+// }
 
 .btnContainer{
   height: 50px;
