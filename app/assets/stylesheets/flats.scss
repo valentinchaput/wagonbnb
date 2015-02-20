@@ -29,3 +29,16 @@
 // .img-rounded {
 //   border-radius: 50%;
 // }
+
+.font-check:after {
+  content: 'coucou';
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background: red;
+}
+input[type="submit"] {
+    font-family: FontAwesome;
+
+
+}

@@ -1,20 +1,18 @@
 <div class="container inline text-center">
+  <h2>Dashboard</h2>
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="item">
-        <h3>My Dashboard</h3>
         <h4><%= current_user.name %></h4>
         <div>
           <p><%= current_user.phone_number %></p>
           <p><i class="fa fa-envelope"></i>  <%= current_user.email %></p>
         </div>
       </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="item">
         <h4>My wagon(s): </h4>
         <p><% current_user.flats.each do |f| %></p>
+        <p>***</p>
         <p><i class="fa fa-bus"></i>  <%= f.title %></p>
         <p><%= f.description %></p>
         <p><i class="fa fa-usd"></i>  <%= f.price %> - <i class="fa fa-globe"></i>  <%= f.city %></p>
@@ -22,38 +20,47 @@
       </div>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="item">
-        <h4>My booking(s): </h4>
-        <p><% current_user.bookings.each do |b| %></p>
-        <p>Flat: <%= b.flat_id %></p>
-          <p>Renter: <%= b.user_id %></p>
+        <h4>Requests for my wagon(s): </h4>
+        <p><% current_user.bookings.reverse.each do |b| %></p>
+          <p>***</p>
+          <p>Flat: <%= b.flat.title %></p>
+          <p><i class="fa fa-usd"></i>  <%= b.flat.price %> - <i class="fa fa-globe"></i>  <%= b.flat.city %></p>
+          <p>Renter: <%= b.user.name %></p>
           <p>from <%= b.checkin %></p>
           <p>to <%= b.checkout %></p>
           <% if b.status.nil? %>
-          <%= form_for([b.flat, b]) do |f| %>
-          <%= f.hidden_field :id, value: b.id %>
-          <%= f.hidden_field :status, value: true %>
-          <%= f.submit "Accept", class: "btn btn-success" %>
-          <% end %>
-          <%= form_for([b.flat, b]) do |f| %>
-          <%= f.hidden_field :status, value: false %>
-          <%= f.submit "Decline", class: "btn btn-danger" %>
-          <% end %>
+            <ul class="list-inline">
+              <li>
+                <%= form_for([b.flat, b]) do |f| %>
+                  <%= f.hidden_field :id, value: b.id %>
+                  <%= f.hidden_field :status, value: true %>
+                  <input type='submit' value="&#xf00c", class="btn btn-success btn-fa">
+                <% end %>
+              </li>
+              <li>
+                <%= form_for([b.flat, b]) do |f| %>
+                  <%= f.hidden_field :id, value: b.id %>
+                  <%= f.hidden_field :status, value: false %>
+                  <input type='submit' value="&#xf00d", class="btn btn-danger btn-fa">
+                <% end %>
+              </li>
+            </ul>
           <% else %>
-          <p>Status: <%= b.status %> </p>
+            <p>Status: <%= b.status %> </p>
           <% end %>
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="item">
-        <h4>My Travels: </h4>
-          <p><% current_user.bookings.each do |b| %></p>
+        <h4>My travel requests: </h4>
+        <p><% current_user.bookings.reverse.each do |b| %></p>
+          <p>***</p>
           <p>Flat: <%= b.flat.title %></p>
-          <p>City: <%= b.flat.city %></p>
+          <p><i class="fa fa-usd"></i>  <%= b.flat.price %> - <i class="fa fa-globe"></i>  <%= b.flat.city %></p>
           <p>Owner: <%= User.find(b.flat.user_id).name if b.flat.user_id %></p>
           <p>from <%= b.checkin %></p>
           <p>to <%= b.checkout %></p>
@@ -63,3 +70,4 @@
     </div>
   </div>
 </div>
+
