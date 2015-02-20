@@ -42,6 +42,8 @@
       <% else %>
         <% if a.status %></p>
           <p>Status: ACCEPTED</p>
+        <% elsif a.status.nil? %>
+          <p>Status: PENDING</p>
         <% else %>
           <p>Status: DECLINED</p>
         <% end %>
@@ -57,7 +59,13 @@
      <p>Owner: <%= User.find(b.flat.user_id).name if b.flat.user_id %></p>
      <p>from <%= b.checkin %></p>
      <p>to <%= b.checkout %></p>
-     <p>Booking status: <%= b.status %></p>
+     <% if b.status %></p>
+        <p>Booking status: ACCEPTED</p>
+      <% elsif b.status.nil? %>
+          <p>Status: PENDING</p>
+      <% else %>
+        <p>Booking status: DECLINED</p>
+      <% end %>
     <% end %>
   </div>
 </div>
