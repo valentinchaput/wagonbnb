@@ -1,6 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4 item">
+      <div class="imageContainer">
+        <% if @flat.picture_file_name %>
+          <%= image_tag @flat.picture.url(:medium) %>
+        <% else %>
+          <%= image_tag 'wagonbnb_thumb.jpg' %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4 item">
       <h1><%= @flat.title %></h1>
       <div>
         <p><i class="fa fa-globe"></i>  <%= @flat.address %>, <%= @flat.city %></p>
@@ -9,29 +19,17 @@
         <p><i class="fa fa-user"></i>  <%= @flat.user.name %></p>
       </div>
     </div>
+
     <div class="col-xs-12 col-sm-6 col-md-4 item">
-      <% if @flat.picture_file_name %>
-      <%= image_tag @flat.picture.url(:medium) %>
+      <h4>Request booking</h4>
+      <%= simple_form_for [@flat, @booking] do |f| %>
+
+        <%= f.input :checkin %>
+        <%= f.input :checkout %>
+
+        <%= f.button :submit, class: "btn btn-success" %>
       <% end %>
     </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-4 item-transparent">
-      <br>
-      <%= link_to "request booking", new_flat_booking_path(@flat), class: "btn btn-warning" %>
-      <%= link_to "return to list", flats_path, class: "btn btn-primary" %>
-    </div>
-  </div>
-
-  <div class="container">
-    <h2>Request booking</h2>
-    <%= simple_form_for [@flat, @booking] do |f| %>
-
-      <%= f.input :checkin %>
-      <%= f.input :checkout %>
-
-      <%= f.button :submit, class: "btn btn-success" %>
-    <% end %>
-  </div>
 
 </div>
 
