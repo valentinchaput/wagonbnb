@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.flat = @flat
     @booking.user = current_user
     if @booking.save
-      redirect_to flat_booking_path(@flat, @booking)
+      redirect_to profile_show_path
     else
       flash.now[:alert] = "Unable to create a booking request"
       render :new
