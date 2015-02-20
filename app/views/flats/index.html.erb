@@ -1,25 +1,21 @@
-<div class='container'>
+<div class="container">
   <h2 class="text-center">Results for your search:</h2>
-  <div class='row'>
-  <% @flats.each do |flat| %>
-    <div class='col col-xs-12 col-sm-6 col-md-4 item'>
-        <div class="text-center titleContainer">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-4">
+      <div class="item text-center">
+        <br>
+        <% @flats.each do |flat| %>
           <% if flat.picture_file_name %>
             <%= image_tag flat.picture.url(:thumb) %>
           <% else %>
             <%= image_tag 'wagonbnb_thumb.jpg' %>
           <% end %>
-        </div>
-        <div class="text-center titleContainer">
           <h3><%= flat.title %></h3>
-        </div>
-         <div class="text-center infosContainer">
-          <p><i class="fa fa-globe"></i>  <%= flat.city %> - <i class="fa fa-dollar"></i>  <%= flat.price %></p>
-        </div>
-        <div class="text-center btnContainer">
+          <p><i class="fa fa-globe"></i>  <%= flat.address %>, <%= flat.city %></p>
+          <p><i class="fa fa-dollar"></i>  <%= flat.price %></p>
           <p><%= link_to "show details", flat_path(flat), class: "btn btn-success" %></p>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

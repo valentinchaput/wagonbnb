@@ -1,24 +1,27 @@
-<div class="item">
-  <h1><%= @flat.title %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 item">
+      <h1><%= @flat.title %></h1>
+      <div>
+        <p><i class="fa fa-globe"></i>  <%= @flat.city %></p>
+        <p><%= @flat.description %></p>
+        <p><i class="fa fa-dollar"></i>  <%= @flat.price %></p>
+        <p><i class="fa fa-user"></i>  <%= @flat.user.name %></p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 item">
+      <% if @flat.picture_file_name %>
+        <%= image_tag @flat.picture.url(:medium) %>
+      <% else %>
+        <%= image_tag 'wagonbnb_thumb.jpg' %>
+      <% end %>
+    </div>
 
-  <div>
-    <% if flat.picture_file_name %>
-      <%= image_tag flat.picture.url(:medium) %>
-    <% else %>
-      <%= image_tag 'wagonbnb_thumb.jpg' %>
-    <% end %>
-  </div>
-
-  <div>
-    <p><%= @flat.city %></p>
-    <p><%= @flat.description %></p>
-    <p><%= @flat.price %></p>
-    <p><%= @flat.user_id %></p>
-  </div>
-
-  <div>
-    <%= link_to "request booking", new_flat_booking_path(@flat), class: "btn btn-warning" %>
-    <%= link_to "return to list", flats_path, class: "btn btn-primary" %>
+    <div class="col-xs-12 col-sm-6 col-md-4 item-transparent">
+      <br>
+      <%= link_to "request booking", new_flat_booking_path(@flat), class: "btn btn-warning" %>
+      <%= link_to "return to list", flats_path, class: "btn btn-primary" %>
+    </div>
   </div>
 
   <div class="container">
