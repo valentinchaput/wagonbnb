@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-6 col-md-4 item">
       <h1><%= @flat.title %></h1>
       <div>
-        <p><i class="fa fa-globe"></i>  <%= @flat.city %></p>
+        <p><i class="fa fa-globe"></i>  <%= @flat.address %>, <%= @flat.city %></p>
         <p><%= @flat.description %></p>
         <p><i class="fa fa-dollar"></i>  <%= @flat.price %></p>
         <p><i class="fa fa-user"></i>  <%= @flat.user.name %></p>
@@ -34,3 +34,12 @@
   </div>
 
 </div>
+
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+$(document).ready(function() {
+var coord = <%= raw @flat_coordinates %>;
+alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+});
+<% end %>
+<% end %>
