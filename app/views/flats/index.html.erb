@@ -7,7 +7,7 @@
         <% @flats.each do |flat| %>
           <%= image_tag flat.picture.url(:thumb) %>
           <h3><%= flat.title %></h3>
-          <p><i class="fa fa-globe"></i>  <%= flat.city %></p>
+          <p><i class="fa fa-globe"></i>  <%= flat.address %>, <%= flat.city %></p>
           <p><i class="fa fa-dollar"></i>  <%= flat.price %></p>
           <p><%= link_to "show details", flat_path(flat), class: "btn btn-success" %></p>
         <% end %>
