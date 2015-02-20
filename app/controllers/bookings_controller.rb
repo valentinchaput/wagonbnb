@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @flat.available?(@booking)
       if @booking.save
-        redirect_to flat_booking_path(@flat, @booking)
+        redirect_to profile_show_path
       else
         flash.now[:alert] = "Unable to create a booking request"
         render :new
@@ -53,7 +53,6 @@ class BookingsController < ApplicationController
     end
   end
 
-
   def edit
     @booking = Booking.find(params[:id])
   end
@@ -61,7 +60,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:booking][:id])
     if @booking.update(booking_params)
-      redirect_to flats_path
+      redirect_to profile_show_path
     else
       redirect_to profile_show_path
     end

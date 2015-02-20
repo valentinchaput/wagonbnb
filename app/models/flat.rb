@@ -4,16 +4,20 @@ class Flat < ActiveRecord::Base
 
   validates :title, presence: true
   validates :description, presence: true
+  validates :address, presence: true
   validates :city, presence: true
   validates :price, presence: true
   # validates :availability, null: true
   # validates :user_id, presence: true, uniqueness: true
 
   has_attached_file :picture,
-  styles: { medium: "400x400>", thumb: "200x200>" }
+  styles: { medium: "400x400>", thumb: "260x260>" }
 
   validates_attachment_content_type :picture,
   content_type: /\Aimage\/.*\z/
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 
   def self.search(search)
     where("city iLIKE ?", "%#{search}%")

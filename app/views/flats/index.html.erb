@@ -1,18 +1,41 @@
-<div class='container'>
-  <h2 class="text-center">Results for your search:</h2>
-  <div class='row'>
-  <% @flats.each do |flat| %>
-    <div class='col col-xs-12 col-sm-6 col-md-4 item'>
-        <div class="text-center titleContainer">
-          <h3><%= flat.title %></h3>
-        </div>
-         <div class="text-center infosContainer">
-          <p><i class="fa fa-globe"></i>  <%= flat.city %> - <i class="fa fa-dollar"></i>  <%= flat.price %></p>
-        </div>
-        <div class="text-center btnContainer">
-          <p><%= link_to "show details", flat_path(flat), class: "btn btn-success" %></p>
+<h2 class="text-center">Results for your search:</h2>
+
+<div class="container">
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="card-white">
+          <div class="text-center imageContainer">
+            <% if flat.picture_file_name %>
+              <%= image_tag flat.picture.url(:thumb) %>
+            <% else %>
+              <%= image_tag 'logo.jpg' %>
+            <% end %>
+          </div>
+          <div class="text-center titleContainer">
+            <h3><%= flat.title %></h3>
+            <p><i class="fa fa-globe"></i>  <%= flat.address %>, <%= flat.city %> - <i class="fa fa-dollar"></i>  <%= flat.price %></p>
+          </div>
+          <div class="text-center btnContainer">
+            <p><%= link_to "show details", flat_path(flat), class: "btn btn-success" %></p>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    })
+  <% end %>
+<% end %>

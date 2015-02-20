@@ -1,7 +1,6 @@
 <body id="body-home">
 
-
-<div class="padded text-center smooth-scrollable" id="banner">
+<div class="padded text-center" id="banner">
   <div class="fade-and-slide">
     <h2>Your ride, your home</h2>
   </div>
@@ -20,7 +19,6 @@
       </div>
     </div>
   </div>
-  <a href="#description"><i class="fa fa-angle-down fa-6 pulse scroll-btn"></i></a>
 </div>
 
 <div class="container">
@@ -60,38 +58,4 @@
     </div>
   </div>
 
-
 </div>
-
-
-
-
-<script>
-
-// header pic height
-$(document).ready(function() {
-  $(« .window-height »).css(« height », $(window).height());
-});
-// end header pic
-
-
-$(function() {
-// Smooth scroll
-$('a[href*=#]:not([href=#])').click(function() {
-  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-    var target = $(this.hash);
-    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-    if (target.length) {
-      $('html,body').animate({
-        scrollTop: target.offset().top
-      }, 1000);
-      return false;
-    }
-  }
-});
-// Scroll reveal
-window.sr = new scrollReveal();
-});
-</script>
-
-</body>
