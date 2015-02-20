@@ -23,4 +23,13 @@ class Flat < ActiveRecord::Base
     where("city iLIKE ?", "%#{search}%")
   end
 
+  def available?(b)
+    output = true
+    bookings.select { |bkg| bkg.status }.each do |booking|
+      if booking.checkin <= b.checkout && booking.checkout >= b.checkin
+        output = false
+      end
+    end
+    output
+  end
 end

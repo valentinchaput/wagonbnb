@@ -14,14 +14,41 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  # def create
+  #   @booking = Booking.new(booking_params)
+  #   @booking.flat = @flat
+  #   @booking.user = current_user
+  #   if @flat.right_dates?(@booking)
+  #     if @flat.available?(@booking)
+  #       if @booking.save
+  #         redirect_to flat_booking_path(@flat, @booking)
+  #       else
+  #         flash.now[:alert] = "Unable to create a booking request"
+  #         render :new
+  #       end
+  #     else
+  #       flash.now[:alert] = "Unavailable - please try other dates"
+  #       render :new
+  #     end
+  #   else
+  #     flash.now[:alert] = "Dates are not valid - either are before today or checkout is before checkin"
+  #     render :new
+  #   end
+  # end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.user = current_user
-    if @booking.save
-      redirect_to profile_show_path
+    if @flat.available?(@booking)
+      if @booking.save
+        redirect_to profile_show_path
+      else
+        flash.now[:alert] = "Unable to create a booking request"
+        render :new
+      end
     else
-      flash.now[:alert] = "Unable to create a booking request"
+      flash.now[:alert] = "Unavailable - please try other dates"
       render :new
     end
   end
