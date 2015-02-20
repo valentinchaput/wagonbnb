@@ -3,9 +3,9 @@
     <div class="col-xs-12 col-sm-6 col-md-4 item">
       <div class="imageContainer">
         <% if @flat.picture_file_name %>
-          <%= image_tag @flat.picture.url(:medium) %>
+          <%= image_tag @flat.picture.url(:thumb) %>
         <% else %>
-          <%= image_tag 'wagonbnb_thumb.jpg' %>
+          <%= image_tag 'logo.jpg' %>
         <% end %>
       </div>
     </div>
@@ -34,10 +34,10 @@
 </div>
 
 <% content_for(:after_js) do %>
-<%= javascript_tag do %>
-$(document).ready(function() {
-var coord = <%= raw @flat_coordinates %>;
-alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
-});
-<% end %>
+  <%= javascript_tag do %>
+  $(document).ready(function() {
+  var coord = <%= raw @flat_coordinates %>;
+  alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+  });
+  <% end %>
 <% end %>
