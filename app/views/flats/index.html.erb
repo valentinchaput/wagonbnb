@@ -1,18 +1,17 @@
-<!-- <h1>Flats#index</h1>
-<p>Find me in app/views/flats/index.html.erb</p> -->
 <div class="container">
+  <h2 class="text-center">Results for your search:</h2>
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-4">
       <div class="item text-center">
         <br>
         <% @flats.each do |flat| %>
-        <%= image_tag flat.picture.url(:thumb) %>
-        <h3><%= flat.title %></h3>
-        <p><i class="fa fa-globe"></i>  <%= flat.city %></p>
-        <p><i class="fa fa-dollar"></i>  <%= flat.price %></p>
-        <p><%= link_to "show details", flat_path(flat), class: "btn btn-success" %></p>
+          <%= image_tag flat.picture.url(:thumb) %>
+          <h3><%= flat.title %></h3>
+          <p><i class="fa fa-globe"></i>  <%= flat.city %></p>
+          <p><i class="fa fa-dollar"></i>  <%= flat.price %></p>
+          <p><%= link_to "show details", flat_path(flat), class: "btn btn-success" %></p>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
 </div>

@@ -21,4 +21,16 @@
       <%= link_to "return to list", flats_path, class: "btn btn-primary" %>
     </div>
   </div>
+
+  <div class="container">
+    <h2>Request booking</h2>
+    <%= simple_form_for [@flat, @booking] do |f| %>
+
+      <%= f.input :checkin %>
+      <%= f.input :checkout %>
+
+      <%= f.button :submit, class: "btn btn-success" %>
+    <% end %>
+  </div>
+
 </div>

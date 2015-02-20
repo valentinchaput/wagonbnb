@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-3">
       <div class="item">
-        <h3>My profile</h3>
+        <h3>My Dashboard</h3>
         <h4><%= current_user.name %></h4>
         <div>
           <p><%= current_user.phone_number %></p>
@@ -45,6 +45,20 @@
           <% end %>
           <% end %>
         </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="item">
+        <h4>My Travels: </h4>
+          <p><% current_user.bookings.each do |b| %></p>
+          <p>Flat: <%= b.flat.title %></p>
+          <p>City: <%= b.flat.city %></p>
+          <p>Owner: <%= User.find(b.flat.user_id).name if b.flat.user_id %></p>
+          <p>from <%= b.checkin %></p>
+          <p>to <%= b.checkout %></p>
+          <p>Booking status: <%= b.status %></p>
+        <% end %>
       </div>
     </div>
   </div>
