@@ -4,6 +4,13 @@
   <% @flats.each do |flat| %>
     <div class='col col-xs-12 col-sm-6 col-md-4 item'>
         <div class="text-center titleContainer">
+          <% if @flat.picture_file_name %>
+            <%= image_tag @flat.picture.url(:thumb) %>
+          <% else %>
+            <%= image_tag 'wagonbnb_thumb.jpg' %>
+          <% end %>
+        </div>
+        <div class="text-center titleContainer">
           <h3><%= flat.title %></h3>
         </div>
          <div class="text-center infosContainer">

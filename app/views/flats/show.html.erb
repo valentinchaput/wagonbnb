@@ -4,6 +4,8 @@
   <div>
     <% if @flat.picture_file_name %>
       <%= image_tag @flat.picture.url(:medium) %>
+    <% else %>
+      <%= image_tag 'wagonbnb_thumb.jpg' %>
     <% end %>
   </div>
 
