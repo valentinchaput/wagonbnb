@@ -31,11 +31,20 @@
          <%= f.submit "Accept", class: "btn btn-success" %>
        <% end %>
        <%= form_for([a.flat, a]) do |f| %>
+         <%= f.hidden_field :id, value: a.id %>
          <%= f.hidden_field :status, value: false %>
          <%= f.submit "Decline", class: "btn btn-danger" %>
        <% end %>
+       <%#= form_for([a.flat, a]) do |f| %>
+         <%#= f.hidden_field :status, value: false %>
+         <%#= f.submit "Decline", class: "btn btn-danger" %>
+       <%# end %>
       <% else %>
-       <p>Status: <%= a.status %></p>
+        <% if a.status %></p>
+          <p>Status: ACCEPTED</p>
+        <% else %>
+          <p>Status: DECLINED</p>
+        <% end %>
       <% end %>
     <% end %>
   </div>
