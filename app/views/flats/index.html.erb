@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="text-center">Results for your search:</h2>
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-5 col-md-offset-4">
+    <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="item text-center">
         <br>
         <% @flats.each do |flat| %>
@@ -13,20 +13,22 @@
         <% end %>
       </div>
     </div>
-  </div>
-</div>
 
-<div id="map" style="width: 100%; height: 600px;"></div>
 
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="item text-center" id="map" style="width: 400px; height: 600px;"></div>
+      <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+      $(document).on('ready', function() {
       handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'map' } }, function(){
-        markers = handler.addMarkers(<%= raw @markers.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
+      markers = handler.addMarkers(<%= raw @markers.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
       });
-    })
-  <% end %>
-<% end %>
+      })
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,17 @@
 <div class="container">
-  <h1>Request a booking for <%= @flat.title %></h1>
+  <h2 class="text-center">Request a booking for <%= @flat.title %></h2>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="item text-center">
 
-  <%= simple_form_for [@flat, @booking] do |f| %>
+        <%= simple_form_for [@flat, @booking] do |f| %>
 
-    <%= f.input :checkin %>
-    <%= f.input :checkout %>
+        <%= f.input :checkin %>
+        <%= f.input :checkout %>
 
-    <%= f.button :submit, class: "btn btn-success" %>
-  <% end %>
+        <%= f.button :submit, class: "btn btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
