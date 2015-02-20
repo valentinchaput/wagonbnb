@@ -1,22 +1,60 @@
-<div class="container">
-  <h1>My Dashboard</h1>
-  <h3><%= current_user.name %></h3>
+<div class="container inline text-center">
+  <h2>Dashboard</h2>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="item">
+        <h4><%= current_user.name %></h4>
+        <div>
+          <p><%= current_user.phone_number %></p>
+          <p><i class="fa fa-envelope"></i>  <%= current_user.email %></p>
+        </div>
+      </div>
+      <div class="item">
+        <h4>My wagon(s): </h4>
+        <p><% current_user.flats.each do |f| %></p>
+        <p>***</p>
+        <p><i class="fa fa-bus"></i>  <%= f.title %></p>
+        <p><%= f.description %></p>
+        <p><i class="fa fa-usd"></i>  <%= f.price %> - <i class="fa fa-globe"></i>  <%= f.city %></p>
+        <% end %>
+      </div>
+    </div>
 
-  <div>
-    <p><%= current_user.phone_number %></p>
-    <p><%= current_user.email %></p>
-  </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="item">
+        <h4>Requests for my wagon(s): </h4>
+        <p><% current_user.bookings.reverse.each do |b| %></p>
+          <p>***</p>
+          <p>Flat: <%= b.flat.title %></p>
+          <p><i class="fa fa-usd"></i>  <%= b.flat.price %> - <i class="fa fa-globe"></i>  <%= b.flat.city %></p>
+          <p>Renter: <%= b.user.name %></p>
+          <p>from <%= b.checkin %></p>
+          <p>to <%= b.checkout %></p>
+          <% if b.status.nil? %>
+            <ul class="list-inline">
+              <li>
+                <%= form_for([b.flat, b]) do |f| %>
+                  <%= f.hidden_field :id, value: b.id %>
+                  <%= f.hidden_field :status, value: true %>
+                  <input type='submit' value="&#xf00c", class="btn btn-success btn-fa">
+                <% end %>
+              </li>
+              <li>
+                <%= form_for([b.flat, b]) do |f| %>
+                  <%= f.hidden_field :id, value: b.id %>
+                  <%= f.hidden_field :status, value: false %>
+                  <input type='submit' value="&#xf00d", class="btn btn-danger btn-fa">
+                <% end %>
+              </li>
+            </ul>
+          <% else %>
+            <p>Status: <%= b.status %> </p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
-  <div>
-  <h4>My flats: </h4>
-    <p><% current_user.flats.each do |f| %></p>
-      <p><%= f.title %></p>
-      <p><%= f.city %></p>
-      <p><%= f.description %></p>
-      <p><%= f.price %></p>
-    <% end %>
-  </div>
-
+<<<<<<< HEAD
   <div>
   <h4>Received requests for my flats: </h4>
     <p><% current_user.flats.map { |flat| flat.bookings }.flatten.each do |a| %></p>
@@ -67,5 +105,22 @@
         <p>Booking status: DECLINED</p>
       <% end %>
     <% end %>
+=======
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="item">
+        <h4>My travel requests: </h4>
+        <p><% current_user.bookings.reverse.each do |b| %></p>
+          <p>***</p>
+          <p>Flat: <%= b.flat.title %></p>
+          <p><i class="fa fa-usd"></i>  <%= b.flat.price %> - <i class="fa fa-globe"></i>  <%= b.flat.city %></p>
+          <p>Owner: <%= User.find(b.flat.user_id).name if b.flat.user_id %></p>
+          <p>from <%= b.checkin %></p>
+          <p>to <%= b.checkout %></p>
+          <p>Booking status: <%= b.status %></p>
+        <% end %>
+      </div>
+    </div>
+>>>>>>> master
   </div>
 </div>
+

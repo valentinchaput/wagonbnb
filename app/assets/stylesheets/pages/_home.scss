@@ -21,21 +21,7 @@
   }
 }
 
-.scroll-btn{
-  position: absolute;
-  width: 100px;
-  margin-left: -50px;
-  bottom: 20px;
-  left: 50%;
-  text-align: center;
-  font-size: 60px;
-  color: white;
-  &:hover{
-    color: white;
-  }
-}
-
-#banner, #description {
+#banner {
   position: relative;
 }
 
@@ -76,10 +62,14 @@
 #searchbar {
   width: 300px;
 }
-
-body {
-    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    line-height: 1.43;
-    color: #565A5C;
+html {
+  height: 100%;
+  body {
+      font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 14px;
+      line-height: 1.43;
+      color: #565A5C;
+      height: 100%;
+      min-heigth: 100%;
+  }
 }
